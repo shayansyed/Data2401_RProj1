@@ -55,15 +55,27 @@ star_data %>%
   summarize(r = cor(x, y))
 ```
 
+The correlation coefficient between x and y for the star dataset is greater than the coefficient correalation between x and y for the dino dataset.
+
 ### Exercise 4
 
-(Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
+Let's plot the data in the circle dataset:
 
-```{r}
+```{r plot-circle, fig.height=3, fig.width=6}
+circle_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) + 
+  geom_point()
 ```
 
-```{r}
+And next calculate the correlation between `x` and `y` in this dataset:
+
+```{r cor-circle}
+circle_data %>%
+  summarize(r = cor(x, y))
 ```
+
+The correlation coefficient between x and y for the star dataset is less than the coefficient correalation between x and y for the dino dataset.
 
 ### Exercise 5
 
