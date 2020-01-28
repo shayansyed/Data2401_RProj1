@@ -2,7 +2,12 @@
 title: "R Project 1 - Hello R"
 author: "Shayan Syed"
 date: "1/23/2020"
-output: html_document
+output: 
+  html_document: 
+    fig_height: 15
+    fig_width: 10
+    highlight: tango
+    theme: lumen
 ---
 
 ### Load packages
@@ -79,4 +84,23 @@ The correlation coefficient between x and y for the star dataset is less than th
 
 ### Exercise 5
 
-(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, green C+.)
+Let’s plot all datasets at once:
+
+```{r plot-all} 
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
+  geom_point()+
+  facet_wrap(~ dataset, ncol = 3) + # facet the dataset variable, in 3 cols
+  theme(legend.position = "none")
+
+```
+
+And finally, let's calculate their summary correlation coefficients:
+
+```{r cor-all}
+datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarize(r = cor(x, y)) %>%
+  print(13)
+```
+
+
