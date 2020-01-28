@@ -15,7 +15,9 @@ library(datasauRus)
 
 ### Exercise 1
 
-(Type your answer to Exercise 1 here. This exercise does not require any R code. **Remove notes like this in your final product**)
+1846 rows
+3 variables
+variabls are dataset, x, and y
 
 ### Exercise 2
 
